@@ -5,15 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercitazione-A-B</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script>
+
+    function changeBase(number, fromBase, toBase)
+    {
+        if (fromBase == 10)
+            return (parseInt(number)).toString(toBase)
+        else if (toBase == 10)
+            return parseInt(number, fromBase);
+        else
+        {
+            var numberInDecimal = parseInt(number, fromBase);
+            return parseInt(numberInDecimal).toString(toBase);
+        }
+    }
+
+    function calcolo()
+    {
+      let decvalue=document.getElementById('dec').value;
+      let binresult= changeBase(decvalue,10,2);
+      document.getElementById('bin').innerHTML='Risultato:'+binresult;
+    }
+
+    </script>
+
   </head>
 <body>
 
-<form id="frm1" >
-  First name: <input type="text" name="fname"><br>
-  Last name: <input type="text" name="lname"><br><br>
-  <input type="button" value="Submit">
-  <input type="text" id="bin" name="binario"><br><br>
-</form>
+<div id="frm1" >
+  <label for="decimale">Inserire il numero decimale</label><br>
+  <input type="text" id="dec" name="decimale"><br><br>
+  <button onclick="calcolo()">Invia</button><br><br>
+  <label for="binario" id="bin"></label>
+  
+  
+</div>
 
 <p>Il sistema numerico binario è un sistema numerico posizionale in base 2. Esso utilizza solo due simboli, di solito indicati con 0 e 1,
    invece delle dieci cifre utilizzate dal sistema numerico decimale. Ciascuno dei numeri espressi nel sistema numerico binario è definito "numero binario".</p>
